@@ -1,0 +1,32 @@
+[
+  {
+    "id": "eval-sample-01",
+    "question": "What is the primary contribution of the Transformer architecture?",
+    "answer": "The primary contribution of the Transformer architecture is the self-attention mechanism, which eliminates recurrence and convolutions, allowing models to process all tokens in a sequence concurrently and model long-range dependencies efficiently.",
+    "context": [
+      "We propose the Transformer, a model architecture eschewing recurrence and instead relying entirely on an attention mechanism to draw global dependencies between input and output.",
+      "The Transformer allows for significantly more parallelization and can reach a new state of the art in translation quality after being trained for as little as twelve hours on eight P100 GPUs."
+    ],
+    "ground_truth": "The Transformer replaces recurrence and convolutions entirely with self-attention mechanisms, enabling massive parallelization and better handling of long-range dependencies."
+  },
+  {
+    "id": "eval-sample-02",
+    "question": "How does FlashAttention optimize GPU memory consumption?",
+    "answer": "FlashAttention tiles the computation of attention matrices into smaller blocks and avoids writing the large N x N attention matrix to GPU HBM (High Bandwidth Memory), keeping intermediate results in fast SRAM.",
+    "context": [
+      "FlashAttention is an IO-aware exact attention algorithm that uses tiling to reduce the number of memory reads/writes between GPU high bandwidth memory (HBM) and GPU on-chip SRAM.",
+      "By avoiding materializing the intermediate attention matrix of size N x N in HBM, FlashAttention reduces memory footprint from quadratic to linear in sequence length."
+    ],
+    "ground_truth": "FlashAttention uses tiling to compute attention in SRAM and avoids storing the intermediate N x N attention matrix in GPU HBM, lowering IO and memory usage."
+  },
+  {
+    "id": "eval-sample-03",
+    "question": "What is LoRA (Low-Rank Adaptation)?",
+    "answer": "LoRA freezes the pretrained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture, greatly reducing the number of trainable parameters for downstream tasks.",
+    "context": [
+      "We propose Low-Rank Adaptation, or LoRA, which freezes the pre-trained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture, greatly reducing the number of trainable parameters for downstream tasks.",
+      "LoRA can reduce the number of trainable parameters by 10,000 times and the GPU memory requirement by 3 times compared to fine-tuning all parameters."
+    ],
+    "ground_truth": "LoRA freezes original pre-trained model weights and adds trainable low-rank decomposition matrices, dramatically reducing trainable parameters and memory during fine-tuning."
+  }
+]
